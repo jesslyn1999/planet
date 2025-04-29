@@ -99,10 +99,13 @@ The code was tested under Ubuntu 18 and uses these packages:
 - tensorflow-gpu==1.13.1
 - tensorflow_probability==0.6.0
 - dm_control (`egl` [rendering option][dmc-rendering] recommended)
-- gym
-- scikit-image
+```
+export MUJOCO_GL=egl
+```
+- gym==0.26.2
+- scikit-image==0.18.3
 - scipy
-- ruamel.yaml
+- ruamel.yaml==0.16.13
 - matplotlib
 
 [dmc-rendering]: https://github.com/deepmind/dm_control#rendering

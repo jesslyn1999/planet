@@ -1,0 +1,32 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Planet Train Cheetah",
+            "type": "python",
+            "request": "launch",
+            "module": "planet.scripts.train",
+            "args": [
+                "--logdir", "./log",
+                "--params", "{tasks: [cheetah_run]}"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
+            "name": "Planet Train Cheetah New",
+            "type": "python",
+            "request": "launch",
+            "module": "planet.scripts.train",
+            "args": [
+                "--logdir", "./log",
+                "--params", "{tasks: [cheetah_run]}",
+                "--num_runs", "1000",
+                "--resume_runs", "False"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": false
+        }
+        // python3 -m planet.scripts.train --logdir ./log --params '{tasks: [cheetah_run]}' --num_runs 1000 --resume_runs False
+    ]
+}
