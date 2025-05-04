@@ -98,7 +98,7 @@ The code was tested under Ubuntu 18 and uses these packages:
 
 - tensorflow-gpu==1.13.1
 - tensorflow_probability==0.6.0
-- dm_control (`egl` [rendering option][dmc-rendering] recommended)
+- dm_control==1.0.10 (`egl` [rendering option][dmc-rendering] recommended)
 ```
 export MUJOCO_GL=egl
 ```
