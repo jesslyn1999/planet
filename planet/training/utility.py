@@ -25,6 +25,7 @@ import ruamel.yaml as yaml
 import tensorflow as tf
 
 from planet import control
+from planet import training
 from planet import tools
 from planet.training import trainer as trainer_
 
@@ -129,6 +130,7 @@ def get_batch(datasets, phase, reset):
   return data
 
 
+# model_fn = training.define_model
 def train(model_fn, datasets, logdir, config):
   """Train a model on a datasets.
 

@@ -22,7 +22,8 @@
                 "--logdir", "./log",
                 "--params", "{tasks: [cheetah_run]}",
                 "--num_runs", "1000",
-                "--resume_runs", "False"
+                "--resume_runs", "False",
+                "--config", "debug"
             ],
             "console": "integratedTerminal",
             "justMyCode": false
