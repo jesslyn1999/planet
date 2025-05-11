@@ -95,10 +95,12 @@ class RSSM(base.Base):
 
   def _transition(self, prev_state, prev_action, zero_obs):
     """Compute prior next state by applying the transition dynamics."""
-    hidden = tf.concat([prev_state['sample'], prev_action], -1)
+    hidden = tf.concat([prev_state['sample'], prev_action], -1)  # maybe this is stochastic state
     for _ in range(self._num_layers):
       hidden = tf.layers.dense(hidden, **self._kwargs)
-    belief, rnn_state = self._cell(hidden, prev_state['rnn_state'])  # https://github.com/gyang274/tensorflow-serving-tutorial/blob/3f66ef7fd86951cac9fe886359f67c2c81452128/src/serving/tensorflow/tensorflow/contrib/rnn/python/ops/gru_ops.py#L193
+    belief, rnn_state = self._cell(hidden, prev_state['rnn_state'])  
+    # and this is deterministic GRU
+    # https://github.com/gyang274/tensorflow-serving-tutorial/blob/3f66ef7fd86951cac9fe886359f67c2c81452128/src/serving/tensorflow/tensorflow/contrib/rnn/python/ops/gru_ops.py#L193
     if self._future_rnn:
       hidden = belief
     for _ in range(self._num_layers):

@@ -64,7 +64,7 @@ class MPCAgent(object):
     with tf.control_dependencies([prev_action]):
       use_obs = tf.ones(tf.shape(agent_indices), tf.bool)[:, None]
       _, state = self._cell((embedded, prev_action, use_obs), state)
-    action = self._config.planner(
+    action = self._config.planner(  # planet.control.planning.cross_entropy_method
         self._cell, self._config.objective, state,
         embedded.shape[1:].as_list(),
         prev_action.shape[1:].as_list())
