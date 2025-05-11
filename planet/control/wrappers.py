@@ -227,7 +227,7 @@ class ActionRepeat(object):
 
   def __init__(self, env, amount):
     self._env = env
-    self._amount = amount
+    self._amount = amount  # 50
 
   def __getattr__(self, name):
     return getattr(self._env, name)
@@ -244,7 +244,7 @@ class ActionRepeat(object):
 
 
 class NormalizeActions(object):
-
+  # https://gymnasium.farama.org/environments/mujoco/half_cheetah/
   def __init__(self, env):
     self._env = env
     low, high = env.action_space.low, env.action_space.high

@@ -202,7 +202,7 @@ def compute_objectives(posterior, prior, target, graph, config):
       features = tf.stop_gradient(raw_features)
       include = r'.*/head_{}/.*'.format(name)
       exclude = None
-    else:
+    else:  # [reward, image] are left with the gradient of the raw features
       features = raw_features
       include = r'.*'
       exclude = None

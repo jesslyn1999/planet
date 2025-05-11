@@ -60,7 +60,7 @@ class CustomOptimizer(object):
   def minimize(self, loss):
     with tf.name_scope('optimizer_{}'.format(self._name)):
       if self._debug:
-        loss = tf.check_numerics(loss, '{}_loss'.format(self._name))
+        loss = tf.check_numerics(loss, '{}_loss'.format(self._name)) # the loss mustn’t contain NaN or Inf values
       gradients, variables = zip(*self._optimizer.compute_gradients(
           loss, self._variables, colocate_gradients_with_ops=True))
       grad_norm = tf.global_norm(gradients)
